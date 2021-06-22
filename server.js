@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const magicspellRoutes = require('./Routes/magicspell');
+const magicspellRoutes = require('./routes/magicspell');
 
 const app = express();
 
