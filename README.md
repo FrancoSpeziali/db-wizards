@@ -233,7 +233,16 @@ We have our schemas and models all setup, but we need data!
 
 ## Task 13 - Upload spell data
 
-Upload the file `./data/MagicSpells.json` into your magic spells collection
+We will add some spells to our database
+
+Using either;
+
+1) The web interface for MongoDB, 
+2) _or_ a GUI such as [MongoDB Compass](https://www.mongodb.com/products/compass)
+
+upload the file `./data/MagicSpells.json` into your magic spells collection
+
+> If you do not have access to these tools, you can also use the endpoint you created in Task 12 - but you will have to send each JSON object individually
 
 ## Task 14 - Create an endpoint to return all magic spells
 

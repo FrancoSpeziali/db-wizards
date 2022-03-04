@@ -1,18 +1,19 @@
 {
-  "name": "db-subdocuments-references",
+  "name": "db-wizards",
   "version": "1.0.0",
   "description": "This assignment will allow you to build a REST API for a magical wizard database!",
-  "main": "server.js",
+  "main": "server.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.12.14"
-  }
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.4"
+  },
+  "type": "module"
 }
