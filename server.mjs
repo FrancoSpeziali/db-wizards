@@ -1,13 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import magicspellRoutes from "./routes/magicspell.mjs";
+import magicSpellRoutes from "./routes/magicspell.mjs";
 
 const app = express();
 
 dotenv.config();
 
-app.use("/magic-spell", magicspellRoutes);
+app.use("/magic-spell", magicSpellRoutes);
 
 console.log("Casting Mongoose database connection spell... 🪄");
 
