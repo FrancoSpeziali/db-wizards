@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 const WizardSchema = new Schema({
     name: String,
@@ -11,4 +11,4 @@ const WizardSchema = new Schema({
 
 const Wizard = model('Wizard', WizardSchema);
 
-module.exports = Wizard;
+export default Wizard;

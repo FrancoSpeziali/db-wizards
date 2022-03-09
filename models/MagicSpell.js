@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 const MagicSpellSchema = new Schema({
     name: String,
@@ -13,4 +13,4 @@ const MagicSpellSchema = new Schema({
 
 const MagicSpell = model('MagicSpell', MagicSpellSchema);
 
-module.exports = MagicSpell;
+export default MagicSpell;
