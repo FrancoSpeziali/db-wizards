@@ -1,16 +1,16 @@
-import { Schema, model } from 'mongoose';
+import mongoose from "mongoose";
 
-const MagicSpellSchema = new Schema({
-    name: String,
-    description: String,
-    cost: Number,
-    damage: Number,
-    castingTime: Number,
-    level: Number,
-    range: Number,
-    areaOfEffect: Boolean
+const magicSpellSchema = new mongoose.Schema({
+  name: String,
+  description: String,
+  cost: Number,
+  damage: Number,
+  castingTime: Number,
+  level: Number,
+  range: Number,
+  areaOfEffect: Boolean,
 });
 
-const MagicSpell = model('MagicSpell', MagicSpellSchema);
+const MagicSpell = mongoose.model("MagicSpell", magicSpellSchema);
 
 export default MagicSpell;
