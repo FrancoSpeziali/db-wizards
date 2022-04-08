@@ -1,14 +1,14 @@
-const { Schema, model } = require('mongoose');
+import mongoose from "mongoose";
 
-const WizardSchema = new Schema({
-    name: String,
-    description: String,
-    age: Number,
-    level: Number,
-    accuracy: Number,
-    critical: Number,
+const wizardSchema = new mongoose.Schema({
+  name: String,
+  description: String,
+  age: Number,
+  level: Number,
+  accuracy: Number,
+  critical: Number,
 });
 
-const Wizard = model('Wizard', WizardSchema);
+const Wizard = mongoose.model("Wizard", wizardSchema);
 
-module.exports = Wizard;
+export default Wizard;

@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import magicSpellRoutes from "./routes/magicspell.mjs";
+import magicSpellRoutes from "./routes/magicspell.js";
 
 const app = express();
 
