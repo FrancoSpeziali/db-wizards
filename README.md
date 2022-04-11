@@ -2,60 +2,37 @@
 
 ![Wizard](./wizard.gif)
 
-This assignment will allow you to build a REST API for a magical wizard database!
+This assignment will allow you to build a complete REST API for a magical wizard database!
 
-What you will be doing:
+## What you will be doing:
 
-> - Mongoose schema validation
-> - Mongoose subdocuments
-> - Mongoose references
+You will be completing a REST API for a wizard database. You will need to;
 
-This project assumes you've already had experience with:
-
-> - Mongoose Schemas
-> - Building routes and endpoints in Express
+- Complete the schemas
+- Create endpoints for the API
 
 ## Tasks
 
 Before starting these tasks, run the command `npm install` or `npm i`
 
-This will automatically install the following packages:
-- express
-- mongoose
-- dotenv
+### Task 1 - Write a .env file
 
-## Task 1 - Write a .env file
+1. Using the `.env.example` file as a template, create a `.env` file
 
-Note: For this assignment, we already assume you have a MongoDB server, and know how to access your credentials.
+2. Add your database connection details to your `.env` file, filling in the details as provided to you by MongoDB
+   > Hint: The key `DB_NAME` points to the name of the database you want to connect to. Use the name `db-validation`. This will ensure that Mongoose will try and use the existing sample dataset you previously set up.
 
-1. Create a file in your root folder called `.env`. This file will contain all the connection information for accessing your database.
+   > Hint: The key `DB_HOST` is the **domain** of your MongoDB connection string
 
-2. Copy and paste the text in the file `.env.example`, into your `.env` file.
-
-3. For the key `DB_NAME`, choose anything you like. This will be the name of the database we will use (we will only use it for this project). All data we save in this assignment will go inside this database.
-
-   > **Hint:**
-   >
-   > The `DB_NAME` could be related to this assignment, for example `MONGOOSE_SCHEMA_ASSIGNMENT`
-
-4. For the other keys, fill in the details as provided to you by your MongoDB service.
-
-   - DB_HOST=
-   - DB_USER=
-   - DB_PASS=
-   - DB_NAME=
-
-   `mongodb+srv://<DB_USER>:<DB_PASS>@<DB_HOST>/<DB_NAME>?retryWrites=true&w=majority`
-
-## Task 2 - Adding new fields to the Wizard schema
+### Task 2 - Adding new fields to the Wizard schema
 
 Our Wizard schema located in `models/Wizard.js` is not yet finished. Let's update it.
 
 1. Add a new field to the schema called 'origin'. This should be of type `String`
 
-2. Update the field you just added so that it accepts ONLY one of the following strings
+2. Update the field you just added so that it accepts ONLY one of the following strings;
 
-> **Hint:** You need to use `enum` here
+   > **Hint:** You need to use `enum` here
 
 ```text
 'Ankh-Morpork','Bad Schüschein','Betrek','Borogravia','Brindisi','Chimeria','Chirm','Copperhead','Cori Celesti','Djelibeybi','Ephebe','Ghat','Hersheba','Howondaland','Klatchistan','Lipwig','Rehigreed Province','Schmaltzberg','Skund','Sto Helit','Sto Lat','Sunken Leshp','The Chalk','The Wyrmberg','Überwald'
@@ -63,7 +40,7 @@ Our Wizard schema located in `models/Wizard.js` is not yet finished. Let's updat
 
 Source: [List of Discworld locations](https://wiki.lspace.org/mediawiki/List_of_Discworld_locations)
 
-## Task 3 - Finishing the MagicSpell schema
+### Task 3 - Finishing the MagicSpell schema
 
 Our MagicSpell schema located in `models/MagicSpell.js` is not yet finished. Let's update it.
 
@@ -71,17 +48,13 @@ Our MagicSpell schema located in `models/MagicSpell.js` is not yet finished. Let
 
 2. Update the field you just added so that it accepts ONLY one of the following strings
 
-> **Hint:**
->
-> You need to use `enum` here
-
 ```text
 'physical', 'arcane', 'fire', 'frost', 'nature', 'shadow', 'holy'
 ```
 
 Source: [WoW Magic Schools](https://wowpedia.fandom.com/wiki/Magic_schools)
 
-## Task 4 - Adding more properties to the Wizard schema
+### Task 4 - Adding more properties to the Wizard schema
 
 Some fields are required. We must make sure the client supplies them.
 
@@ -100,7 +73,7 @@ For those fields which are not required, we will give them a default value, if t
    - `accuracy` should default to **0.3**
    - `critical` should default to **0**
 
-## Task 5 - Adding more properties to the MagicSpell schema
+### Task 5 - Adding more properties to the MagicSpell schema
 
 1. Add the `required` property to the following fields:
 
@@ -116,7 +89,7 @@ For those fields which are not required, we will give them a default value, if t
    - `range` should default to **0.1**
    - `areaOfEffect` should default to **false**
 
-## Task 6 - Adding number validation to the Wizard schema
+### Task 6 - Adding number validation to the Wizard schema
 
 We don't want clients to add values which might go out of range from what we expect. For example, a person's age should not be below 1!
 
@@ -131,13 +104,9 @@ We don't want clients to add values which might go out of range from what we exp
 - `accuracy` should not go below **0** and not above **1**
 - `critical` should not go below **0** and not above **1**
 
-## Task 7 - Adding number validation to the MagicSpell schema
+### Task 7 - Adding number validation to the MagicSpell schema
 
 1. Add validation to the following number based fields, so that values do not go above or below what we expect
-
-> **Hint:**
->
-> You need to use `min` or `max` here
 
 - `cost` should not go below **1**
 - `damage` should not go below **0**
@@ -145,7 +114,7 @@ We don't want clients to add values which might go out of range from what we exp
 - `level` should not go below **1**
 - `range` should not go below **0**
 
-## Task 8 - Adding a subdocument to the Wizard schema
+### Task 8 - Adding a subdocument to the Wizard schema
 
 1. Add a new field `energy`. This will contain the subdocument
 
@@ -183,7 +152,7 @@ We will reference the MagicSpell model by the `ObjectId`
 
 > Now each wizard can have a spell assigned to them
 
-## Task 10 - Extending each wizard's knowledge of spells
+### Task 10 - Extending each wizard's knowledge of spells
 
 Unfortunately what we've done here will only allow each wizard to have access to 1 spell, but we want to give them the ability to hold multiple spells
 
@@ -206,7 +175,7 @@ becomes
 
 This means the field `spells` is essentially an array of `ObjectId`'s
 
-## Task 11 - Preparing our server to receive requests
+### Task 11 - Preparing our server to receive requests
 
 In the next tasks, we will create a REST API so that clients can connect and perform actions on our server. To do this, we must first begin with a few steps:
 
@@ -214,11 +183,11 @@ In the next tasks, we will create a REST API so that clients can connect and per
 
 2. Import and add `cors` to your middleware stack. This will prevent the dreaded same origin policy error in your browser.
 
-> Remember to run your middleware before any of your routes!
+   > Remember to run your middleware before any of your routes!
 
 3. Run `express.json()` as middleware. This will allow any JSON sent for example, with a POST request, to be correctly read by the server.
 
-## Task 12 - Creating the spells
+### Task 12 - Creating the spells
 
 We have our schemas and models all setup, but we need data!
 
@@ -231,7 +200,7 @@ We have our schemas and models all setup, but we need data!
 
 > Use your imagination!
 
-## Task 13 - Upload spell data
+### Task 13 - Upload spell data
 
 We will add some spells to our database
 
@@ -253,7 +222,7 @@ Using the `/magic-spell` route, create an endpoint which will allow the user to 
 
 - This endpoint should return all spells in the database
 
-## Task 15 - Create an endpoint to return all magic spell schools
+### Task 15 - Create an endpoint to return all magic spell schools
 
 You may have noticed that while trying to test your create magic spell endpoint, you had trouble with the spell schools (remember, you used an `enum` here to validate against an array of strings)
 
@@ -261,7 +230,7 @@ To solve this, we will create a new endpoint that can return all the magic spell
 
 1. Inside the `/magic-spell` route, create an endpoint with the path `/schools`. This endpoint should expect a GET request, and should return all the magic spell schools as an array of strings
 
-## Task 16 - Creating the wizard's route and endpoints
+### Task 16 - Creating the wizard's route and endpoints
 
 Let's turn our attention to the wizards
 
@@ -276,11 +245,11 @@ Let's turn our attention to the wizards
 
 > Use your imagination!
 
-## Task 17 - Upload wizard data
+### Task 17 - Upload wizard data
 
 Upload the file `./data/Wizards.json` into your wizards collection
 
-## Task 18 - Create an endpoint to return all wizards
+### Task 18 - Create an endpoint to return all wizards
 
 We would like our client to view all wizards in the database
 
@@ -289,7 +258,7 @@ Using the `/wizard` route, create an endpoint which will allow the user to view 
 
 - This endpoint should return all wizards in the database
 
-## Task 19 - Create an endpoint to return all wizard origins
+### Task 19 - Create an endpoint to return all wizard origins
 
 You may have noticed that while trying to test your create wizard endpoint, you had trouble with the origins (remember, you used an `enum` here to validate against an array of strings)
 
@@ -308,7 +277,7 @@ There are 2 ways to solve this.
 > If you want to do this programmatically (using the values directly from the schema itself)
 > You can use the [schema.path()](https://mongoosejs.com/docs/schematypes.html#path) function to extract the enum values from the schema
 
-## Task 20 - Create a route to read a spell
+### Task 20 - Create a route to read a spell
 
 1. Inside the `/magic-spell` route, create an endpoint with the path `/details`. This endpoint should expect a GET request, and should expect an id as a param or a query param. The id will be the ObjectId of the spell. It should return all the details of the spell.
    - Use the mongoose model method `findById()`
@@ -320,7 +289,7 @@ There are 2 ways to solve this.
 >
 > A query param uses `request.query`
 
-## Task 21 - Create a route to read a wizard
+### Task 21 - Create a route to read a wizard
 
 1. Inside the `/wizard` route, create an endpoint with the path `/details`. This endpoint should expect a GET request, and should expect an id as a param or a query param. The id will be the ObjectId of the wizard. It should return all the details of a wizard.
    - Use the mongoose model method `findById()`
@@ -332,7 +301,7 @@ There are 2 ways to solve this.
 >
 > A query param uses `request.query`
 
-## Task 22 - Adding spells to a wizard
+### Task 22 - Adding spells to a wizard
 
 A wizard is no fun without spells! We will create an endpoint to allow a wizard to learn a spell
 
@@ -356,9 +325,9 @@ A wizard should be able to level up, when they have enough experience
    - Use the mongoose model method `findByIdAndUpdate()`
    - `findById()` expects one argument - an object. Modify the level of the wizard by `+1`
 
-# Bonus Tasks
+## Bonus Tasks
 
-## Bonus 1 - Spellcast! 🧙 🪄 🔥
+### Spellcast! 🧙 🪄 🔥
 
 A wizard is no fun, if they can't perform their magic!
 
