@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const wizardSchema = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true },
   description: String,
   age: Number,
   level: Number,

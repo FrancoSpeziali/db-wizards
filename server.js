@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import magicSpellRoutes from "./routes/magicspell.js";
+import magicSpellRoutes from "./routes/magicSpell.js";
 
 dotenv.config();
 

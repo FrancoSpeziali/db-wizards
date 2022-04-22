@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const magicSpellSchema = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true },
   description: String,
   cost: Number,
   damage: Number,
