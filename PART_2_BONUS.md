@@ -1,32 +1,5 @@
 ## Bonus Tasks
 
-### Create an endpoint to return all wizard origins
-
-You may have noticed that while trying to test your **create wizard endpoint**, you had a problem getting the `origin` field correct (remember, you used an `enum` here to validate against an array of strings)
-
-To solve this, we will create a new endpoint that can return all wizard origins
-
-1. Inside the `/wizard` route, create an endpoint with the path `/origins`. This endpoint should expect a GET request, and should return all the wizard origins as an array of strings.
-
-There are 2 ways to solve this.
-
-> **Hint (common solution)**:
->
-> You will want to return the `enum` values you used when you setup your schema
-
-> **Hint (challenging solution)**:
->
-> If you want to do this programmatically (using the values directly from the schema itself)
-> You can use the [schema.path()](https://mongoosejs.com/docs/schematypes.html#path) function to extract the enum values from the schema
-
-### Write some middleware to prevent the wizard from learning a spell that is too high for them!
-
-1. Query the **MagicSpell** for the `_id` - and find the `level` of the spell
-
-2. Query the **Wizard** for the wizard `_id` - and find the `level` of the wizard
-
-3. Compare the 2 values, and reject the request if the wizard is too low for the **MagicSpell**
-
 ### Spellcast! 🧙 🪄 🔥
 
 A wizard is no fun, if they can't perform their magic!
