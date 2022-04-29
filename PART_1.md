@@ -2,18 +2,15 @@
 
 ### Task 1 - Write a .env file
 
-1. Using the `.env.example` file as a template, create a `.env` file
-
-2. Add your database connection details to your `.env` file, filling in the details as provided to you by MongoDB
-   > Hint: The key `DB_NAME` points to the name of the database you want to connect to
-
-   > Hint: The key `DB_HOST` is the **domain** of your MongoDB connection string
+Using the `.env.example` file as a template, create a `.env` file, and fill it with your MongoDB connection details
+   
+   > Hint: The key `DB_NAME` points to the database name
 
 ### Task 2 - Adding new fields to the Wizard schema
 
-Our Wizard schema located in `models/Wizard.js` is not yet finished. Let's update it.
+Our Wizard schema located in `models/Wizard.js` is not yet finished
 
-1. Add a new field to the schema called `origin`. This should be of type `String`
+1. Add a new field to the schema called `origin`. This should be of type `String`.
 
 2. Update the field you just added so that it accepts ONLY one of the following strings;
 
@@ -27,7 +24,7 @@ Source: [List of Discworld locations](https://wiki.lspace.org/mediawiki/List_of_
 
 ### Task 3 - Finishing the MagicSpell schema
 
-Our MagicSpell schema located in `models/MagicSpell.js` is not yet finished. Let's update it.
+Our MagicSpell schema located in `models/MagicSpell.js` is not yet finished
 
 1. Add a new field to the schema called 'school'. This should be of type `String`
 
@@ -63,7 +60,7 @@ We don't want clients to add values which might go out of range from what we exp
 
 Add validation to the following number based fields, so that values do not go above or below what we expect
 
-> Hint: You need to use `min` or `max` here
+> Hint: Not sure how? Check out [validation](https://mongoosejs.com/docs/validation.html#built-in-validators)
 
 - `age` should not go below **1**
 - `level` should not go below **1**
@@ -104,24 +101,18 @@ Add validation to the following number based fields, so that values do not go ab
 
 ### Task 9 - Linking the Wizard schema with the MagicSpell schema
 
-A wizard would be no fun without spells, am I right?
+A wizard would be no fun without spells, am I right? Let's give each wizard the ability to learn spells.
 
-Let's give each wizard the ability to learn spells
+1. Add a new field `spells`. This will contain a reference to the MagicSpell model.
 
-We will reference the MagicSpell model by the `ObjectId`
+2. Set the type to `ObjectId`
 
-1. Add a new field `spells`. This will contain a reference to the MagicSpell model. Assign an empty object to this field.
-
-2. Add a property `type`, and assign it the `ObjectId` type
-
-3. Add a property `ref` and assign it the `MagicSpell` collection
+3. Add a `ref` to the `MagicSpell` collection
 
 > Now each wizard can have a spell assigned to them
 
 ### Task 10 - Extending each wizard's knowledge of spells
 
-Unfortunately what we've done here will only allow each wizard to have access to 1 spell, but we want to give them the ability to hold multiple spells
+Unfortunately each wizard has access to 1 spell, but we want to give them the ability to hold multiple spells
 
-Wrap the object you assigned to the field `spells` inside an array.
-
-> This will make field `spells` an array of `ObjectId`'s
+Wrap the object you assigned to the field `spells` inside an array. This will make `spells` an array of `ObjectId`'s.
